@@ -1,0 +1,76 @@
+irc-server.js
+=============
+
+An IRC server in Javascript. Inspired by the example IRCd Ryan
+published here:
+
+  https://gist.github.com/a3d0bbbff196af633995
+
+Why?
+----
+
+Javascript is starting to break out of it's perceived roll as a
+browser-based client-side-only language. I've been playing with node.js
+for the past few weeks and it's rather nice. Trouble is, a lot of the
+code that's been published so far isn't very well (or often, not at
+all) tested. There's also a surprisingly small amount being published
+as CommonJS modules. I like testing and I like CommonJS so I try to fix
+these things.
+
+Why an IRCd is particular? Well, IRC is a pretty satisfying way of
+learning stuff - you get to see results with not too much effort, and
+when it works it's easy to write bots for it which is quite fun.
+
+Although it's not written yet, irc/server.js will be implemented as a
+CommonJS[1] module. You'll use it something like this:
+
+  var IRC = require("/path/to/irc/server.js"),
+      sys    = require("sys");
+  var server = new IRC.Server();
+  server.run();
+
+
+Simple, eh?
+
+Eventually I'll expose a bunch of hooks, but for now I just want
+somewhere for my bots to hang out that won't pollute public IRC
+servers.
+
+If there's something that it doesn't do that you want it to, please
+feel free to fork and patch.
+
+Contributing
+------------
+
+  * Fork the project.
+  * Make your feature addition or bug fix.
+  * Add tests for it. This is important so I don't break it in a
+    future version unintentionally.
+  * Make sure all the tests pass.
+  * Commit and push your changes.
+  * Send me a pull request. Bonus points for topic branches.
+
+Testing
+-------
+
+We use my fork of spectacular[2] for testing. It's setup as a submodule
+so you'll get it by running `git submodule init && git submodule update`
+in the project directory.
+
+Run the tests like this:
+
+  cd /path/to/irc-server.js
+  node vendor/spec/tacular.js
+
+All tests must pass for a change to be committed to the master branch.
+
+Authors
+-------
+
+Craig R Webster <http://barkingiguana.com/#me>
+
+Links
+-----
+
+[1] http://commonjs.org/
+[2] http://github.com/craigw/spectacular.git
